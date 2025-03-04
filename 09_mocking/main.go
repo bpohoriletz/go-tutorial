@@ -1,10 +1,9 @@
-package main
+package mocking
 
 import (
 	"fmt"
 	"io"
 	"iter"
-	"os"
 	"time"
 )
 
@@ -43,8 +42,8 @@ func countDownFrom(from int) iter.Seq[int] {
 	}
 }
 
-func main() {
-	sleeper := ConfigurableSleeper{1 * time.Second, time.Sleep}
+//func main() {
+//sleeper := ConfigurableSleeper{1 * time.Second, time.Sleep}
 
-	Countdown(os.Stdout, sleeper)
-}
+//Countdown(os.Stdout, sleeper)
+//}
