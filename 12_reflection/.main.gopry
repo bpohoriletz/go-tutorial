@@ -1,0 +1,27 @@
+package main
+
+import (
+	"fmt"
+	"reflect"
+
+	"github.com/d4l3k/go-pry/pry"
+)
+
+func walk(x interface{}, fn func(input string)) {
+	val := reflect.ValueOf(x)
+	field := val.Field(0)
+	fn(field.String())
+}
+
+type Some struct {
+	Name string
+}
+
+func main() {
+	str := Some{"Text"}
+
+	pry.Pry()
+	walk(str, func(input string) {
+		fmt.Println(input)
+	})
+}
